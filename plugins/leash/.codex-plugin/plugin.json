@@ -1,0 +1,18 @@
+{
+  "name": "leash",
+  "version": "0.1.0+codex.20260906071111",
+  "description": "Deterministic scope guardrails for Codex tool calls.",
+  "author": {
+    "name": "Local developer"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Leash",
+    "shortDescription": "Keep Codex work in scope.",
+    "longDescription": "Measure scope, don't judge code quality.",
+    "developerName": "Local developer",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "$leash scope src/**"
+  }
+}

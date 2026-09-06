@@ -1,0 +1,32 @@
+{
+    "description":  "Leash deterministic scope guardrails.",
+    "hooks":  {
+                  "UserPromptSubmit":  [
+                                           {
+                                               "hooks":  [
+                                                             {
+                                                                 "type":  "command",
+                                                                 "command":  "python3 \"$PLUGIN_ROOT/scripts/codex_hook.py\"",
+                                                                 "commandWindows":  "py -3 -c \"import os,runpy;runpy.run_path(os.path.join(os.environ[\u0027PLUGIN_ROOT\u0027],\u0027scripts\u0027,\u0027codex_hook.py\u0027),run_name=\u0027__main__\u0027)\"",
+                                                                 "timeout":  5,
+                                                                 "statusMessage":  "Leash control"
+                                                             }
+                                                         ]
+                                           }
+                                       ],
+                  "PreToolUse":  [
+                                     {
+                                         "matcher":  "Bash|apply_patch|Edit|Write",
+                                         "hooks":  [
+                                                       {
+                                                           "type":  "command",
+                                                           "command":  "python3 \"$PLUGIN_ROOT/scripts/codex_hook.py\"",
+                                                           "commandWindows":  "py -3 -c \"import os,runpy;runpy.run_path(os.path.join(os.environ[\u0027PLUGIN_ROOT\u0027],\u0027scripts\u0027,\u0027codex_hook.py\u0027),run_name=\u0027__main__\u0027)\"",
+                                                           "timeout":  5,
+                                                           "statusMessage":  "Leash scope check"
+                                                       }
+                                                   ]
+                                     }
+                                 ]
+              }
+}
